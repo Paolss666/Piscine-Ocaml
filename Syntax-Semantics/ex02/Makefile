@@ -1,4 +1,4 @@
-NAME = ex01
+NAME = ex02
 
 COMPILER = ocamlopt
 
@@ -6,7 +6,7 @@ INC_PATH = ./incl/
 INC = -I $(INC_PATH)
 
 SRCS_PATH = ./src/
-SRC = ft_countdown.ml
+SRC = ft_power.ml
 SRCS = $(addprefix $(SRCS_PATH), $(SRC))
 
 OBJS_PATH = ./obj/
