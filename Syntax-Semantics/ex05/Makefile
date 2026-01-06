@@ -1,4 +1,4 @@
-NAME = ex04
+NAME = ex05
 
 COMPILER = ocamlopt
 
@@ -6,7 +6,7 @@ INC_PATH = ./incl/
 INC = -I $(INC_PATH)
 
 SRCS_PATH = ./src/
-SRC = ft_print_comb.ml
+SRC = ft_print_rev.ml
 SRCS = $(addprefix $(SRCS_PATH), $(SRC))
 
 OBJS_PATH = ./obj/
