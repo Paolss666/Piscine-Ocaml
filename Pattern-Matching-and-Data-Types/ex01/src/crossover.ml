@@ -1,5 +1,5 @@
-let rec is_in elem lst = 
-  match lst with
+let rec is_in elem list = 
+  match list with
   | [] -> false
   | x :: xs ->
     if x = elem then true
