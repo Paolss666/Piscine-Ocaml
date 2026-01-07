@@ -17,10 +17,10 @@ let rec crossover lst lst1 =
 let rec print_list lst =
   match lst with
   | [] -> print_newline ()
-  | x :: resto ->
+  | x :: xs ->
       print_int x;
       print_string " ";
-      print_list resto
+      print_list xs
 
 let () =
   print_endline "Test 1:";
@@ -38,4 +38,4 @@ let () =
   print_endline "Test 4:";
   let result4 = crossover ['a'; 'b'; 'c'] ['b'; 'c'; 'd'] in
   List.iter (fun c -> Printf.printf "%c " c) result4;
-  print_newline ()  (* → b c *)
+  print_newline ()
