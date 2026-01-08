@@ -42,15 +42,3 @@ let () =
   let eight = 8 in
   let result = sequence eight in
   Printf.printf "Sequence(%d): %s\n" eight result;
-(*   print_endline "Gray(1):";
-  List.iter (Printf.printf "%s ") (gray 1);
-  print_newline ();
-  
-  print_endline "\nGray(2):";
-  List.iter (Printf.printf "%s ") (gray 2);
-  print_newline ();
-  
-  print_endline "\nGray(3):";
-  List.iter (Printf.printf "%s ") (gray 3);
-  print_newline ()
- *)

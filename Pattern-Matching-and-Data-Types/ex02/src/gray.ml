@@ -1,4 +1,4 @@
-let gray n = 
+let gray (n: int) : string list = 
   let rec prefix_all pre lst = 
     List.map (String.cat pre) lst
   in
