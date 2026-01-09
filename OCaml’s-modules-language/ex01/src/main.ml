@@ -17,10 +17,15 @@ let () =
   Printf.printf "Length of all:  %d\n" (List.length Value.all);
 
   print_endline "\n==== TEST PREV - NEXT ====";
-  List.iter (fun card -> 
-    let next = Value.next card in
-    Printf.printf "Next of %d is %s\n" (Value.toInt card) (Value.toStringVerbose next)
-  ) Value.all;
+  
+  let next_tests = Value.T2 in
+  let previous_tests = Value.T7 in
+
+  let next = Value.next next_tests in
+  Printf.printf "Next of %s is %s\n" (Value.toStringVerbose next_tests) (Value.toStringVerbose next);
+  
+  let previous = Value.previous previous_tests in
+  Printf.printf "Prev of %s is %s\n" (Value.toStringVerbose previous_tests) (Value.toStringVerbose previous); 
 
   List.iter (fun card -> 
     let previous = Value.previous card in

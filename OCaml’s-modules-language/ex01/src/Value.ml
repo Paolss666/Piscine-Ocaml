@@ -67,12 +67,12 @@ let next : t -> t =
   | Jack -> Queen
   | Queen -> King
   | King -> As
-  | As -> T2
+  | As -> invalid_arg "No next value after As"
 
 
 let previous: t -> t =
   function
-  | T2 -> As
+  | T2 -> invalid_arg "No previous value before T2"
   | T3 -> T2
   | T4 -> T3
   | T5 -> T4
