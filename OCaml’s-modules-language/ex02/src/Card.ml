@@ -106,3 +106,53 @@ end = struct
   
   let all = [T2; T3; T4; T5; T6; T7; T8; T9; T10; Jack; Queen; King; As]
 end
+
+(* RIMUOVO module Card : sig ... end = struct ... end *)
+(* Le funzioni Card vanno direttamente nel file *)
+
+type t = { color : Color.t; value : Value.t }
+
+let toStringVerbose card =
+  "Card("^(Value.toStringVerbose card.value)^", "^(Color.toStringVerbose card.color)^")"
+
+let toString card =
+  (Value.toString card.value)^(Color.toString card.color)
+
+let allSpades = List.map (fun value -> { color = Color.Spade; value }) Value.all
+let allHearts = List.map (fun value -> { color = Color.Heart; value }) Value.all
+let allDiamonds = List.map (fun value -> { color = Color.Diamond; value }) Value.all
+let allClubs = List.map (fun value -> { color = Color.Club; value }) Value.all
+let all = List.concat [allSpades; allHearts; allDiamonds; allClubs]
+
+let getColor card = card.color
+let getValue card = card.value
+
+let compare card1 card2 =
+  Value.toInt card1.value - Value.toInt card2.value
+
+let max card1 card2 = 
+  if compare card1 card2 >= 0 then card1 else card2
+
+let min card1 card2 =
+  if compare card1 card2 <= 0 then card1 else card2
+
+let best cards =
+  if cards = [] then
+    invalid_arg "Card.best: empty list"
+  else
+    List.fold_left max (List.hd cards) cards
+
+let isOf card color =
+  card.color = color
+
+let isSpade card =
+  isOf card Color.Spade
+
+let isHeart card =
+  isOf card Color.Heart
+
+let isDiamond card =
+  isOf card Color.Diamond
+
+let isClub card =
+  isOf card Color.Club
