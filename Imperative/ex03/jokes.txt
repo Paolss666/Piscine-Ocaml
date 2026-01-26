@@ -1,6 +1,20 @@
-"Why do programmers prefer dark mode? Because light attracts bugs!";
-"How many programmers does it take to change a light bulb? None. It's a hardware problem!";
-"Why do Java developers wear glasses? Because they don't see sharp!";
-"What is a programmer's favorite hangout place? Foo Bar!";
-"Why do programmers hate nature? It has too many bugs!";
-"What do you call a group of 8 hobbits? A hobbyte!"
+ "Why do programmers always mix up Halloween and Christmas? Because Oct 31 == Dec 25!";
+  "What's a programmer's favorite exercise? Running code!";
+  "Why did the programmer quit his job? Because he didn't get arrays!";
+  "How do you comfort a JavaScript bug? You console it!";
+  "Why don't programmers like to go outside? The sun causes too many reflections!";
+  "What do you call a programmer from Finland? Nerdic!";
+  "Why did the developer go broke? Because he used up all his cache!";
+  "What's the object-oriented way to become wealthy? Inheritance!";
+  "Why do Python programmers have low self-esteem? They're constantly comparingselves to others!";
+  "What did the router say to the doctor? It hurts when IP!";
+  "Why was the function sad? Because it had no class!";
+  "How do you generate a random string? Put a Windows user in front of Vim!";
+  "What's a programmer's favorite place in New York? The Big Apple store!";
+  "Why did the database administrator leave his wife? She had one-to-many relationships!";
+  "What do you call 8 hobbits? A hobbyte. What do you call 1024 hobbits? A hobbikilo!";
+  "Why do OCaml programmers never get sunburned? They're always in the shade of a lambda!";
+  "What's the best thing about a Boolean? Even if you're wrong, you're only off by a bit!";
+  "Why did the programmer always carry a ladder? To reach the higher-order functions!";
+  "What do you call a recursive function that doesn't stop? A career in tech support!";
+  "Why are assembly programmers always soaking wet? They work below C level!";
