@@ -6,7 +6,7 @@ let my_sleep n =
   done
 
 let () =
-  if Array.length Sys.argv < 2 then
+  if Array.length Sys.argv <> 2 then
       exit 1
   else 
     let n = int_of_string Sys.argv.(1)  in
