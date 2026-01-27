@@ -1,5 +1,11 @@
 let () =
-let module StringHashtbl = Hashtbl.Make(String) in
+let module StringKey = struct
+  type t = string
+  let hash = Hashtbl.hash
+  let equal = String.equal
+end in
+
+let module StringHashtbl = Hashtbl.Make(StringKey) in
 let ht = StringHashtbl.create 5 in
 let values = [ "Hello"; "world"; "42"; "Ocaml"; "H" ] in
 let pairs = List.map (fun s -> (s, String.length s)) values in
