@@ -6,6 +6,8 @@ let module StringKey = struct
 end in
 
 let module StringHashtbl = Hashtbl.Make(StringKey) in
+
+Printf.printf "Using custom StringHashtbl:\n";
 let ht = StringHashtbl.create 5 in
 let values = [ "Hello"; "world"; "42"; "Ocaml"; "H" ] in
 let pairs = List.map (fun s -> (s, String.length s)) values in
