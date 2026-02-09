@@ -5,6 +5,8 @@ type deoxyribose = string
 
 type phosphate = string
 
+(* Record *)
+
 type nucleotide = {
   nucleobase : nucleobase;
   deoxyribose : deoxyribose;
