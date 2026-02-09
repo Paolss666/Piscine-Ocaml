@@ -242,10 +242,6 @@ let test_edge_cases () =
 
 (* ========== MAIN ========== *)
 let () =
-  print_endline "";
-  print_endline "╔════════════════════════════════════════╗";
-  print_endline "║     CARD MODULE - COMPLETE TEST        ║";
-  print_endline "╚════════════════════════════════════════╝";
   
   test_color ();
   test_value ();
