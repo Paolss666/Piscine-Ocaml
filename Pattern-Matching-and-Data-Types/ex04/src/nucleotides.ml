@@ -43,35 +43,35 @@ let print_nucleotide n =
 let () =
   print_endline "=== Test generate_nucleotide ===\n";
   
-  (* Test con 'A' *)
+  (* Test with 'A' *)
   print_string "Input: 'A' -> ";
   let n1 = generate_nucleotide 'A' in
   print_nucleotide n1;
   
-  (* Test con 'T' *)
+  (* Test with 'T' *)
   print_string "Input: 'T' -> ";
   let n2 = generate_nucleotide 'T' in
   print_nucleotide n2;
   
-  (* Test con 'C' *)
+  (* Test with 'C' *)
   print_string "Input: 'C' -> ";
   let n3 = generate_nucleotide 'C' in
   print_nucleotide n3;
   
-  (* Test con 'G' *)
+  (* Test with 'G' *)
   print_string "Input: 'G' -> ";
   let n4 = generate_nucleotide 'G' in
   print_nucleotide n4;
   
-  (* Test con carattere invalido *)
-  print_string "\nInput: 'X' (invalido) -> ";
+  
+  print_string "\nInput: 'X' (invalid) -> ";
   let n5 = generate_nucleotide 'X' in
   print_nucleotide n5;
   
-  print_string "Input: 'Z' (invalido) -> ";
+  print_string "Input: 'Z' (invalid) -> ";
   let n6 = generate_nucleotide 'Z' in
   print_nucleotide n6;
   
-  print_string "Input: '1' (invalido) -> ";
+  print_string "Input: '1' (invalid) -> ";
   let n7 = generate_nucleotide '1' in
   print_nucleotide n7;

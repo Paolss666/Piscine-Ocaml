@@ -40,6 +40,8 @@ let rec print_result lst =
 let () =
   let str = "aaabbb" in
   let list = string_to_list str in
+(*   print_string "to list: ";
+  print_result (List.mapi (fun i c -> (1, c)) list); *)
   let result = encode list in
   print_string "to string: ";
   print_result result;
