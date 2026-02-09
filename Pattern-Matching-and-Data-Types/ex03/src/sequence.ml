@@ -25,6 +25,8 @@ let rec sequence n =
 
 
 let () =
+  let invalid = sequence (-1) in
+  Printf.printf "Sequence(-1): %s\n" invalid;
   let one = sequence 1 in
   Printf.printf "Sequence(1): %s\n" one;
   let two = sequence 2 in
