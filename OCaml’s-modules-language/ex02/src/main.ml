@@ -1,11 +1,9 @@
-(* Helper per stampare separatori *)
 let print_separator title =
   print_newline ();
   print_endline "==========================================";
   Printf.printf "  %s\n" title;
   print_endline "=========================================="
 
-(* Helper per stampare liste di carte *)
 let print_card_list cards =
   List.iter (fun card ->
     Printf.printf "%s " (Card.toString card)
