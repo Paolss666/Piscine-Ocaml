@@ -107,8 +107,6 @@ end = struct
   let all = [T2; T3; T4; T5; T6; T7; T8; T9; T10; Jack; Queen; King; As]
 end
 
-(* RIMUOVO module Card : sig ... end = struct ... end *)
-(* Le funzioni Card vanno direttamente nel file *)
 
 type t = { color : Color.t; value : Value.t }
 
