@@ -125,11 +125,6 @@ let test_card_compare () =
     (Card.toString card_7_heart)
     (Card.compare card_as_spade card_7_heart);
   
-  Printf.printf "%s vs %s: %d\n" 
-    (Card.toString card_7_heart) 
-    (Card.toString card_king_diamond)
-    (Card.compare card_7_heart card_king_diamond);
-  
   Printf.printf "%s vs %s: %d (same value, different color)\n" 
     (Card.toString card_as_spade) 
     (Card.toString card_as_club)
