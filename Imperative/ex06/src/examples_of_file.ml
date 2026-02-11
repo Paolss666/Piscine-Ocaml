@@ -10,10 +10,9 @@ let examples_of_file (file_name : string) : (float array * string) list =
     []
   end
   else
-    let examples = ref [] in
     let ic = open_in file_name in
-    (try
-      while true do
+    let rec read_lines acc =
+      try
         let line = input_line ic in
         let parts = String.split_on_char ',' line in
         let len_parts = List.length parts in
@@ -23,13 +22,14 @@ let examples_of_file (file_name : string) : (float array * string) list =
             float_of_string (List.nth parts i)
           ) in
           let feature_array = Array.of_list features in
-          examples := (feature_array, class_label) :: !examples
-      done;
-      []
-    with End_of_file ->
-      close_in ic;
-      List.rev !examples
-    )
+          read_lines ((feature_array, class_label) :: acc)
+        else
+          read_lines acc
+      with End_of_file ->
+        close_in ic;
+        List.rev acc
+    in
+    read_lines []
 
 let () =
   if Array.length Sys.argv <> 2 then
@@ -38,9 +38,9 @@ let () =
     let file_name = Sys.argv.(1) in
     let examples = examples_of_file file_name in
     Printf.printf "Loaded %d examples\n" (List.length examples);
-    (*
+    (* Uncomment to see the data *)
     List.iter (fun (features, label) ->
       Printf.printf "Label: %s, Features: [" label;
       Array.iter (fun f -> Printf.printf "%f; " f) features;
       Printf.printf "]\n"
-    ) examples *)
+    ) examples
