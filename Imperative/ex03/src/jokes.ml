@@ -22,5 +22,7 @@ let jokes text : unit =
 let () =
 if Array.length Sys.argv <> 2 then
   Printf.printf "Usage: %s <jokes_file>\n" Sys.argv.(0)
-else 
-jokes Sys.argv.(1) 
+else if not (Sys.argv.(1) = "jokes.txt") then
+  Printf.printf "Please provide a valid jokes file (jokes.txt)\n"
+else
+  jokes Sys.argv.(1)
