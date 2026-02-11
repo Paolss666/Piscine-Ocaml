@@ -1,7 +1,5 @@
 let sum ( n: float) ( m: float) : float =
-  let result = ref 0.0 in 
-  result := n +. m;
-  !result
+  n +. m
 
 
 
