@@ -5,7 +5,6 @@ let jokes (): unit =
     "Why do Java developers wear glasses? Because they don't see sharp!";
     "What is a programmer's favorite hangout place? Foo Bar!";
     "Why do programmers hate nature? It has too many bugs!";
-
     "What do you call a group of 8 hobbits? A hobbyte!"
   |] in 
   Random.self_init ();

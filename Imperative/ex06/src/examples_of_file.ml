@@ -34,7 +34,11 @@ let examples_of_file (file_name : string) : (float array * string) list =
 let () =
   if Array.length Sys.argv <> 2 then
     Printf.printf "Usage: %s <file_name>\n" Sys.argv.(0)
-  else 
+  else if not (Sys.argv.(1).[String.length Sys.argv.(1) - 4] = 'c' && 
+               Sys.argv.(1).[String.length Sys.argv.(1) - 3] = 's' &&
+               Sys.argv.(1).[String.length Sys.argv.(1) - 2] = 'v') then
+    Printf.printf "File %s is not a CSV file.\n" Sys.argv.(1)
+  else
     let file_name = Sys.argv.(1) in
     let examples = examples_of_file file_name in
     Printf.printf "Loaded %d examples\n" (List.length examples);
