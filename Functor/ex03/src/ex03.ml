@@ -115,12 +115,37 @@ let () =
 
 
   Printf.printf "----- DIV ----\n";
-
   let dv1 = Fixed4.of_float 2.2 in
   let dv2 = Fixed4.of_float 22.22 in
-
   let div = Fixed4.div dv2 dv1 in 
-  Printf.printf "22.22 / 2.2 = %s\n\n" (Fixed4.to_string div)
+  Printf.printf "22.22 / 2.2 = %s\n\n" (Fixed4.to_string div);
 
 
+  Printf.printf "----- OPERATORS  ----\n";
+  let c1 = Fixed8.of_float 10.5 in
+  let c2 = Fixed8.of_float 20.3 in
+  let c3 = Fixed8.of_float 10.5 in
+  Printf.printf "10.5 > 20.3 = %b\n" (Fixed8.gth c1 c2);
+  Printf.printf "10.5 < 20.3 = %b\n" (Fixed8.lth c1 c2);
+  Printf.printf "10.5 >= 10.5 = %b\n" (Fixed8.gte c1 c3);
+  Printf.printf "10.5 <= 10.5 = %b\n" (Fixed8.lte c1 c3);
+  Printf.printf "10.5 == 10.5 (physical) = %b\n" (Fixed8.eqp c1 c3);
+  Printf.printf "10.5 = 10.5 (structural) = %b\n\n" (Fixed8.eqs c1 c3);
   
+
+  Printf.printf "--- TEST ---\n";
+  Printf.printf "Fixed4 (4 bits): 1/16 = %s\n" 
+    (Fixed4.to_string (Fixed4.of_float (1.0 /. 16.0)));
+    
+  let neg1 = Fixed8.of_float (-5.5) in
+  let neg2 = Fixed8.of_float 3.2 in
+  Printf.printf "-5.5 + 3.2 = %s\n" (Fixed8.to_string (Fixed8.add neg1 neg2));
+
+  Printf.printf "--- FOREACH (Fixed8: 10. to 0.5) ---\n";
+  let half8 = Fixed8.of_float 10. in
+  let count = ref 0 in
+  Fixed8.foreach (Fixed8.zero) half8 (fun f -> 
+    Printf.printf "%s " (Fixed8.to_string f);
+    incr count;
+    if !count mod 5 = 0 then Printf.printf "\n"
+  );
