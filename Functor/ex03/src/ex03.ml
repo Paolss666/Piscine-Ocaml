@@ -81,4 +81,46 @@ let () =
   
   Fixed4.foreach (Fixed4.zero) (Fixed4.one) (fun f -> 
     print_endline (Fixed4.to_string f)
-  )
+  );
+
+  let f4_a = Fixed4.of_float 21.05 in 
+  let f4_b = Fixed4.of_int 10 in 
+  Printf.printf "Fixed4.of_float 21.5 = %s\n" (Fixed4.to_string f4_a);
+  Printf.printf "Fixed4.of_int 10 = %s\n" (Fixed4.to_string f4_b);
+  Printf.printf "Fixed4.to_float (21.5) = %.2f\n" (Fixed4.to_float f4_a);
+  Printf.printf "Fixed4.to_int (21.5) = %d\n\n" (Fixed4.to_int f4_a);
+  
+  Printf.printf "--- COST ---\n";
+  Printf.printf "Fixed4.zero = %s\n" (Fixed4.to_string Fixed4.zero);
+  Printf.printf "Fixed4.one = %s\n\n" (Fixed4.to_string Fixed4.one);
+  
+  Printf.printf "--- SUCC/PRED ---\n";
+  let x = Fixed4.of_float 5.5 in
+  Printf.printf "x = %s\n" (Fixed4.to_string x);
+  Printf.printf "succ(x) = %s\n" (Fixed4.to_string (Fixed4.succ x));
+  Printf.printf "pred(x) = %s\n\n" (Fixed4.to_string (Fixed4.pred x));
+  
+  Printf.printf "--- ADD ---\n";
+  let x8 = Fixed8.of_float 21.10 in
+  let y8 = Fixed8.of_float 21.32 in
+  let r8 = Fixed8.add x8 y8 in
+  Printf.printf "21.10 + 21.32 = %s\n\n" (Fixed8.to_string r8);
+  
+  Printf.printf "--- SUB ---\n";
+  let a = Fixed4.of_float 100.5 in
+  let b = Fixed4.of_float 30.25 in
+  let diff = Fixed4.sub a b in
+  Printf.printf "100.5 - 30.25 = %s\n\n" (Fixed4.to_string diff);
+
+
+
+  Printf.printf "----- DIV ----\n";
+
+  let dv1 = Fixed4.of_float 2.2 in
+  let dv2 = Fixed4.of_float 22.22 in
+
+  let div = Fixed4.div dv2 dv1 in 
+  Printf.printf "22.22 / 2.2 = %s\n\n" (Fixed4.to_string div)
+
+
+  
