@@ -24,7 +24,7 @@ module type FIXED = sig
   val foreach : t -> t -> (t -> unit) -> unit
 end
 
-module Make (Config : sig val bits : int end) : FIXED = struct
+module Make(Config : sig val bits : int end) : FIXED = struct
   type t = int
   
   let scale = 1 lsl Config.bits
