@@ -27,7 +27,7 @@ end
 module Make (Config : sig val bits : int end) : FIXED = struct
   type t = int
   
-  let scale = 1 lsl Config.bits  (* 2^bits, es: 2^4 = 16 *)
+  let scale = 3 lsl Config.bits
   let scale_f = float_of_int scale
   
   let of_float f = int_of_float (f *. scale_f)
@@ -35,8 +35,7 @@ module Make (Config : sig val bits : int end) : FIXED = struct
   let to_float x = float_of_int x /. scale_f
   let to_int x = x / scale
   
-  let to_string x = 
-    Printf.sprintf "%.2f" (to_float x)
+  let to_string x = Printf.sprintf "%.3f" (to_float x)
   
   let zero = 0
   let one = scale
@@ -50,19 +49,17 @@ module Make (Config : sig val bits : int end) : FIXED = struct
   let lth x y = x < y
   let gte x y = x >= y
   let lte x y = x <= y
-  let eqp x y = x == y  (* physical equality *)
-  let eqs x y = x = y   (* structural equality *)
+  let eqp x y = x == y
+  let eqs x y = x = y
   
   let add x y = x + y
   let sub x y = x - y
-  
   let mul x y = (x * y) / scale
-  
   let div x y = (x * scale) / y
   
   let foreach start stop f =
     let rec loop current =
-      if current < stop then begin
+      if current <= stop then begin
         f current;
         loop (succ current)
       end
