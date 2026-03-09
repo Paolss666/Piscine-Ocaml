@@ -27,7 +27,7 @@ end
 module Make (Config : sig val bits : int end) : FIXED = struct
   type t = int
   
-  let scale = 3 lsl Config.bits
+  let scale = 1 lsl Config.bits
   let scale_f = float_of_int scale
   
   let of_float f = int_of_float (f *. scale_f)
@@ -35,7 +35,20 @@ module Make (Config : sig val bits : int end) : FIXED = struct
   let to_float x = float_of_int x /. scale_f
   let to_int x = x / scale
   
-  let to_string x = Printf.sprintf "%.3f" (to_float x)
+(*   let to_string x = Printf.sprintf "%.10f" (to_float x) *)
+  let to_string x = 
+    let f = to_float x in
+    let s = Printf.sprintf "%.10f" f in
+    let rec trim s =
+      let len = String.length s in
+      if len > 0 && s.[len-1] = '0' then
+        trim (String.sub s 0 (len-1))
+      else if len > 0 && s.[len-1] = '.' then
+        s ^ "0"
+      else
+        s
+    in
+    trim s
   
   let zero = 0
   let one = scale
@@ -80,7 +93,7 @@ let () =
     print_endline (Fixed4.to_string f)
   );
 
-  let f4_a = Fixed4.of_float 21.05 in 
+  let f4_a = Fixed4.of_float 21.5 in 
   let f4_b = Fixed4.of_int 10 in 
   Printf.printf "Fixed4.of_float 21.5 = %s\n" (Fixed4.to_string f4_a);
   Printf.printf "Fixed4.of_int 10 = %s\n" (Fixed4.to_string f4_b);
