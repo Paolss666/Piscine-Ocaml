@@ -9,7 +9,7 @@ class doctor (name : string) (age : int)  (sidekick : People.people) =
       print_endline ("The doctor is born !")
 
     method to_string = name ^ " " ^ (string_of_int age) ^ " years old with " ^ (string_of_int htp) ^ " HP and a sidekick named " ^ sidekick#to_string
-    method talk = "Hi, I'm the Doctor !"
+    method talk = print_endline("Hi, I'm the Doctor !")
     method travel_in_time (start : int) (arrival : int) =
       age <- age + (arrival - start);
       print_endline {|
