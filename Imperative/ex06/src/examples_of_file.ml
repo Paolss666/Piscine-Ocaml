@@ -42,7 +42,6 @@ let () =
     let file_name = Sys.argv.(1) in
     let examples = examples_of_file file_name in
     Printf.printf "Loaded %d examples\n" (List.length examples);
-    (* Uncomment to see the data *)
     List.iter (fun (features, label) ->
       Printf.printf "Label: %s, Features: [" label;
       Array.iter (fun f -> Printf.printf "%f; " f) features;
