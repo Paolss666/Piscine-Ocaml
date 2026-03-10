@@ -2,7 +2,7 @@ let my_sleep n =
   let rem = ref n in
   while !rem > 0 do
     Unix.sleep 1;
-    rem := !rem - 1
+    decr rem
   done
 
 let () =
