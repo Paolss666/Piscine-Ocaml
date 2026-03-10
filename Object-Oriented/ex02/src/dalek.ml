@@ -24,7 +24,7 @@ class dalek =
     shield <- false;
     target#die
 
-  method die = 
+    method die = 
     print_endline "Emergency Temporal Shift!";
     htp <- 0
   end
