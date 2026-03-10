@@ -1,19 +1,18 @@
 module type PAIR = sig val pair : (int * int) end
 module type VAL = sig val x : int end
 
-module MakeFst (P: PAIR): VAL = struct
+module type MAKEPROJECTION = functor (P : PAIR) -> VAL
+
+module MakeFst : MAKEPROJECTION = functor (P : PAIR) -> struct
   let x = fst P.pair
 end
 
-module MakeSnd (P : PAIR): VAL = struct
+module MakeSnd : MAKEPROJECTION = functor (P : PAIR) -> struct
   let x = snd P.pair
 end
 
+module Pair : PAIR = struct let pair = ( 21, 42 ) end
+module Fst : VAL = MakeFst (Pair)
+module Snd : VAL = MakeSnd (Pair)
 
-
-let () = 
-let module Pair : PAIR = struct let pair = ( 21, 42 ) end in 
-let module Fst : VAL = MakeFst (Pair) in 
-let module Snd : VAL = MakeSnd (Pair) in 
-
-Printf.printf "Fst.x = %d, Snd.x = %d\n" Fst.x Snd.x
+let () = Printf.printf "Fst.x = %d, Snd.x = %d\n" Fst.x Snd.x

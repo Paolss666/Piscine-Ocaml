@@ -24,13 +24,19 @@ module type FIXED = sig
   val foreach : t -> t -> (t -> unit) -> unit
 end
 
-module Make(Config : sig val bits : int end) : FIXED = struct
+module type FRACTIONNAL_BITS = sig val bits : int end
+
+module type MAKE = functor (F : FRACTIONNAL_BITS) -> FIXED
+
+module Make : MAKE = functor (Config : FRACTIONNAL_BITS) -> struct
   type t = int
   
   let scale = 1 lsl Config.bits
   let scale_f = float_of_int scale
   
-  let of_float f = int_of_float (f *. scale_f)
+  let of_float f =
+    if f >= 0.0 then int_of_float (f *. scale_f +. 0.5)
+    else int_of_float (f *. scale_f -. 0.5)
   let of_int i = i * scale
   let to_float x = float_of_int x /. scale_f
   let to_int x = x / scale
@@ -43,8 +49,6 @@ module Make(Config : sig val bits : int end) : FIXED = struct
       let len = String.length s in
       if len > 0 && s.[len-1] = '0' then
         trim (String.sub s 0 (len-1))
-      else if len > 0 && s.[len-1] = '.' then
-        s ^ "0"
       else
         s
     in
@@ -74,7 +78,7 @@ module Make(Config : sig val bits : int end) : FIXED = struct
     let rec loop current =
       if current <= stop then begin
         f current;
-        loop (succ current)
+        loop (current + 1)
       end
     in
     loop start

@@ -1,4 +1,4 @@
-NAME = ex02
+NAME = ex04
 
 COMPILER = ocamlopt
 
@@ -8,7 +8,7 @@ INC = -I $(INC_PATH)
 
 SRCS_PATH = ./src/
 
-SRC = ex02.ml
+SRC = ex04.ml
 SRCS = $(addprefix $(SRCS_PATH), $(SRC))
 
 OBJS_PATH = ./obj/

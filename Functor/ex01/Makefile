@@ -2,7 +2,9 @@ NAME = ex01
 
 COMPILER = ocamlopt
 
+INC_PATH = ./incl/
 
+INC = -I $(INC_PATH)
 
 SRCS_PATH = ./src/
 
@@ -21,10 +23,10 @@ $(OBJS_PATH):
 	mkdir -p $(OBJS_PATH)
 
 $(OBJS_PATH)%.cmx: $(SRCS_PATH)%.ml
-	$(COMPILER) -c -o $@ $<  -I $(OBJS_PATH)
+	$(COMPILER) -c -o $@ $< $(INC) -I $(OBJS_PATH)
 
 $(NAME): $(OBJS)
-	$(COMPILER) unix.cmxa $(OBJS) -o $@
+	$(COMPILER) unix.cmxa $(OBJS) -o $@ $(INC)
 
 clean:
 	rm -rf $(OBJS_PATH)
