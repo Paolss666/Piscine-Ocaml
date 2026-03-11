@@ -14,7 +14,6 @@ let () =
   print_endline "\n========== TALK ==========";
   doctor#talk;
   dalek#talk;
-  dalek#talk;
 
   print_endline "\n========== SONIC SCREWDRIVER ==========";
   doctor#use_sonic_screwdriver;

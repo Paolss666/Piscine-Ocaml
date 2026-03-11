@@ -20,7 +20,7 @@ class dalek =
       print_endline phrases.(Random.int (Array.length phrases))
 
   method exerminate (target: People.people) =
-    print_endline (name ^ " exerminate " ^ target#to_string);
+    print_endline (name ^ " exerminate "^ target#get_name);
     shield <- false;
     target#die
 

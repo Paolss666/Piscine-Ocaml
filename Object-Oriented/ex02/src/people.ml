@@ -4,7 +4,8 @@ class people (name : string) =
     initializer
       Printf.printf "%s has been created!\n" name
     val htp : int = 100
+    method get_name = name
     method to_string = name  ^ " has " ^ (string_of_int htp)
     method talk = "I’m " ^ name ^ "! Do you know the Doctor?"
-    method die = "Aaaarghh!"
+    method die = print_endline "Aaaarghh!"
   end
