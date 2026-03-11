@@ -155,11 +155,11 @@ let () =
   let neg2 = Fixed8.of_float 3.2 in
   Printf.printf "-5.5 + 3.2 = %s\n" (Fixed8.to_string (Fixed8.add neg1 neg2));
 
-  Printf.printf "--- FOREACH (Fixed8: 10. to 0.5) ---\n";
+(*   Printf.printf "--- FOREACH (Fixed8: 10. to 0.5) ---\n";
   let half8 = Fixed8.of_float 10. in
   let count = ref 0 in
   Fixed8.foreach (Fixed8.zero) half8 (fun f -> 
     Printf.printf "%s " (Fixed8.to_string f);
     incr count;
     if !count mod 5 = 0 then Printf.printf "\n"
-  );
+  ); *)
