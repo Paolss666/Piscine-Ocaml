@@ -26,6 +26,7 @@ let () =
   doctor#take_domage 60;  (* triggers regeneration *)
   doctor#do_damage 30 dalek;  (* doctor attacks dalek *)
   doctor#do_damage 30 dalek;  (* doctor attacks dalek *)
+  doctor#do_damage 70 dalek;  (* doctor attacks dalek *)
 
   print_endline "\n========== EXTERMINATE ==========";
   dalek#exterminate rose;

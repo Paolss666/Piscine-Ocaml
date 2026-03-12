@@ -1,6 +1,13 @@
+let random_string n =
+  let gen () =
+    let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" in
+    chars.[Random.int (String.length chars)]
+  in
+  String.init n (fun _ -> gen ())
+
 class dalek =
   object (self)
-    val _name = "Dalek" ^ (string_of_int (Random.int 1000))
+    val _name = "Dalek" ^ (random_string 3)
     val mutable _hp = 100
     val mutable _shield = true
 
@@ -20,7 +27,6 @@ class dalek =
 
     method exterminate (target: People.people) =
       print_endline (_name ^ " exterminate " ^ target#get_name);
-      _shield <- false;
       target#die
 
     method die =
