@@ -24,7 +24,7 @@ $(NAME): $(OBJS)
 	$(COMPILER) $(OBJS) -o $@
 
 clean:
-	rm -rf $(OBJS_PATH)
+	rm -rf $(OBJS_PATH) ./src/.*.ml.swp
 
 fclean: clean
 	rm -rf $(NAME)
