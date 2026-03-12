@@ -29,7 +29,7 @@ $(NAME): $(OBJS)
 	$(COMPILER) unix.cmxa $(OBJS) -o $@ $(INC)
 
 clean:
-	rm -rf $(OBJS_PATH)
+	rm -rf $(OBJS_PATH) src/.*.ml.swp
 
 fclean: clean
 	rm -rf $(NAME)
