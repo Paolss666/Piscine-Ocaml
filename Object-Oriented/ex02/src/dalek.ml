@@ -25,9 +25,15 @@ class dalek =
       |] in
       print_endline phrases.(Random.int (Array.length phrases))
 
-    method exterminate (target: People.people) =
-      print_endline (_name ^ " exterminate " ^ target#get_name);
+  method exterminate (target: People.people) =
+    print_endline (_name ^ " exterminate " ^ target#get_name);
+    if _shield then begin
+      _shield <- false;
       target#die
+    end else begin
+      _shield <- true;
+      target#die
+    end
 
     method die =
       print_endline "Emergency Temporal Shift!";
