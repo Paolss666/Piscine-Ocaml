@@ -76,3 +76,24 @@ object
     (compute_formula [new Atom.nitrogen; new Atom.nitrogen])
   method equals (other : molecule) = other#formula = "N2"
 end
+
+
+class trinitrotoluene =
+object
+  inherit molecule "Trinitrotoluene" [
+    new Atom.carbon; new Atom.carbon; new Atom.carbon; new Atom.carbon;
+    new Atom.carbon; new Atom.carbon; new Atom.carbon;
+    new Atom.hydrogen; new Atom.hydrogen; new Atom.hydrogen; new Atom.hydrogen; new Atom.hydrogen;
+    new Atom.nitrogen; new Atom.nitrogen; new Atom.nitrogen;
+    new Atom.oxygen; new Atom.oxygen; new Atom.oxygen; new Atom.oxygen; new Atom.oxygen; new Atom.oxygen
+  ]
+  method to_string = Printf.sprintf "Molecule: %s (Formula: %s)" "Trinitrotoluene"
+    (compute_formula [
+      new Atom.carbon; new Atom.carbon; new Atom.carbon; new Atom.carbon;
+      new Atom.carbon; new Atom.carbon; new Atom.carbon;
+      new Atom.hydrogen; new Atom.hydrogen; new Atom.hydrogen; new Atom.hydrogen; new Atom.hydrogen;
+      new Atom.nitrogen; new Atom.nitrogen; new Atom.nitrogen;
+      new Atom.oxygen; new Atom.oxygen; new Atom.oxygen; new Atom.oxygen; new Atom.oxygen; new Atom.oxygen
+    ])
+  method equals (other : molecule) = other#formula = "C7H5N3O6"
+end
