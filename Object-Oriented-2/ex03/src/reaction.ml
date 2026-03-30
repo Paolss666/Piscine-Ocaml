@@ -9,6 +9,9 @@ let count_atoms (mols : (Molecule.molecule * int) list) : (string * int) list =
     ) acc mol#atoms
   ) [] mols
 
+(* assoc_opt
+  returns the value associated with a key in a list of pairs, or None if the key is not found *)
+
 let check_balanced (start_mols : (Molecule.molecule * int) list) (result_mols : (Molecule.molecule * int) list) : bool =
   let start_atoms = count_atoms start_mols in
   let result_atoms = count_atoms result_mols in
