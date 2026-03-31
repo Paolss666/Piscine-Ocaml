@@ -14,6 +14,7 @@ let () =
   Printf.printf "mul 3 4  = %d\n" (Calc_int.mul 3 4);
   Printf.printf "div 10 3 = %d\n" (Calc_int.div 10 3);
   Printf.printf "power 2 10 = %d\n" (Calc_int.power 2 10);
+  Printf.printf "power 5 0  = %d\n" (Calc_int.power 5 0);
   Printf.printf "fact 5  = %d\n"  (Calc_int.fact 5);
   Printf.printf "fact 0  = %d\n"  (Calc_int.fact 0);
 

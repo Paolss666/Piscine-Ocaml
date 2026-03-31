@@ -2,7 +2,7 @@
 module type MONOID = sig
   type element
   val zero1 : element          (* additive identity: 0   *)
-  val zero2 : element          (* multiplicative identity: 1 *)
+  val one : element            (* multiplicative identity: 1 *)
   val add   : element -> element -> element
   val sub   : element -> element -> element
   val mul   : element -> element -> element
@@ -13,7 +13,7 @@ end
 module INT : MONOID with type element = int = struct
   type element = int
   let zero1 = 0
-  let zero2 = 1
+  let one = 1
   let add x y = x + y
   let sub x y = x - y
   let mul x y = x * y
@@ -24,7 +24,7 @@ end
 module FLOAT : MONOID with type element = float = struct
   type element = float
   let zero1 = 0.0
-  let zero2 = 1.0
+  let one = 1.0
   let add x y = x +. y
   let sub x y = x -. y
   let mul x y = x *. y
@@ -40,11 +40,12 @@ module Calc (M : MONOID) = struct
 
   (* x^n using the multiplicative identity as base case *)
   let rec power x n =
-    if n <= 0 then M.zero2
+    if n < 0 then failwith "Negative exponent not supported";
+    if n = 0 then M.one
     else M.mul x (power x (n - 1))
 
   (* n! using the additive identity as termination condition *)
   let rec fact x =
-    if x = M.zero1 then M.zero2
-    else M.mul x (fact (M.sub x M.zero2))
+    if x = M.zero1 then M.one
+    else M.mul x (fact (M.sub x M.one))
 end
