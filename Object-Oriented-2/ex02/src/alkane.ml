@@ -24,7 +24,9 @@ end
 (* Generic alkane constructor *)
 class make_alkane (n : int) =
 object
-  inherit alkane n
+    inherit alkane n
+  initializer 
+    if n < 1 || n > 12 then failwith "Alkane n must be between 1 and 12 inclusive"
   method to_string =
     Printf.sprintf "Alkane: %s (Formula: %s, n=%d)" alkane_names.(n)
       (Molecule.compute_formula (build_alkane_atoms n)) n
