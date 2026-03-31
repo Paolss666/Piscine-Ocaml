@@ -21,4 +21,7 @@ let () =
   Printf.printf "\n-- FLOAT --\n";
   Printf.printf "add 1.5 2.5 = %g\n"  (Calc_float.add 1.5 2.5);
   Printf.printf "power 2.0 8 = %g\n"  (Calc_float.power 2.0 8);
-  Printf.printf "fact 6.0    = %g\n"  (Calc_float.fact 6.0)
+  Printf.printf "fact 6.0    = %g\n"  (Calc_float.fact 6.0);
+  Printf.printf "sub 0.0 1.0 = %g\n"  (Calc_float.sub 0.0 1.0);
+  Printf.printf "mul 5.5 2.0 = %g\n"  (Calc_float.mul 5.5 2.0);
+  Printf.printf "div 10.0 4.0 = %g\n" (Calc_float.div 10.0 4.0);
