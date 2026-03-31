@@ -40,7 +40,7 @@ module Calc (M : MONOID) = struct
 
   (* x^n using the multiplicative identity as base case *)
   let rec power x n =
-    if n = 0 then M.zero2
+    if n <= 0 then M.zero2
     else M.mul x (power x (n - 1))
 
   (* n! using the additive identity as termination condition *)

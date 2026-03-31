@@ -11,9 +11,15 @@ end = struct
 
   (* Merge two projects: concatenate names, average grades, derive status *)
   let combine (n1, _, g1) (n2, _, g2) =
+    if n1 = "" && n2 = "" then zero
+    else if n1 = "" then (n2, "", g2)
+    else if n2 = "" then (n1, "", g1)
+    else
     let avg = (g1 + g2) / 2 in
     let status = if avg > 80 then "succeed" else "failed" in
-    (n1 ^ n2, status, avg)
+    if n1 = "" then (n2, status, avg)
+    else if n2 = "" then (n1, status, avg)
+    else  (n1 ^", " ^ n2, status, avg)
 
   (* Mark project as failed: grade 0, status "failed" *)
   let fail (name, _, _) = (name, "failed", 0)
