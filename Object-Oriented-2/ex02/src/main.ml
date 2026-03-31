@@ -10,7 +10,7 @@ let () =
   Printf.printf "%s\n" o#to_string;
   Printf.printf "%s\n" propane#to_string;
   Printf.printf "%s\n" dodecane#to_string;
-
+  
   Printf.printf "Methane formula: %s\n" m#formula;
-  Printf.printf "Methane equals Methane: %b\n" (m#equals (m :> Molecule.molecule));
+  Printf.printf "Methane equals Methane: %b\n" (m#equals (m :> Molecule.molecule)); (* upcast *)
   Printf.printf "Methane equals Ethane: %b\n" (m#equals (e :> Molecule.molecule))
