@@ -46,6 +46,7 @@ module Calc (M : MONOID) = struct
 
   (* n! using the additive identity as termination condition *)
   let rec fact x =
+    if x < M.zero1 then failwith "Negative input not supported";
     if x = M.zero1 then M.zero2
     else M.mul x (fact (M.sub x M.zero2))
 end
